@@ -83,6 +83,7 @@ def default_config() -> config_dict.ConfigDict:
                 stand_still=-0.2,  # was -1.0 TODO try to relax this a bit ?
                 alive=20.0,
                 imitation=1.0,
+                slip=-0.5,
             ),
             tracking_sigma=0.01,  # was working at 0.01
         ),
@@ -631,6 +632,16 @@ class Joystick(open_duck_mini_v2_base.OpenDuckMiniV2Env):
     ) -> dict[str, jax.Array]:
         del metrics  # Unused.
 
+        # Foot global linear velocities from sensors:
+        # shape: (2, 3) for two feet (x,y,z) in world frame
+        feet_vel = data.sensordata[self._foot_linvel_sensor_adr]  # (2,3)
+
+        # Tangential speed (xy plane) during contact
+        feet_tan_speed = jp.linalg.norm(feet_vel[:, :2], axis=-1)  # (2,)
+
+        # Slip cost: only penalise when the foot is in contact
+        slip_cost = jp.mean(contact.astype(jp.float32) * feet_tan_speed)
+
         ret = {
             "tracking_lin_vel": reward_tracking_lin_vel(
                 info["command"],
@@ -664,6 +675,7 @@ class Joystick(open_duck_mini_v2_base.OpenDuckMiniV2Env):
                 self._default_actuator,
                 ignore_head=False,
             ),
+            "slip": slip_cost,
         }
 
         return ret

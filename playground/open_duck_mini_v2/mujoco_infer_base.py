@@ -256,28 +256,40 @@ class MJInferBase:
             self.gravity_id : self.gravity_id + self.gravity_dimensions
         ]
 
-    def check_contact(self, data, body1_name, body2_name):
+    def check_contact_with_any(self, data, body1_name, body2_names):
         body1_id = data.body(body1_name).id
-        body2_id = data.body(body2_name).id
+
+        # Only keep terrain bodies that actually exist in this scene
+        valid_body2_ids = set()
+        for name in body2_names:
+            try:
+                valid_body2_ids.add(data.body(name).id)
+            except KeyError:
+                pass
+
+        if not valid_body2_ids:
+            return 0.0
 
         for i in range(data.ncon):
-            try:
-                contact = data.contact[i]
-            except Exception as e:
-                return False
+            con = data.contact[i]
+            geom1 = con.geom1
+            geom2 = con.geom2
 
-            if (
-                self.model.geom_bodyid[contact.geom1] == body1_id
-                and self.model.geom_bodyid[contact.geom2] == body2_id
-            ) or (
-                self.model.geom_bodyid[contact.geom1] == body2_id
-                and self.model.geom_bodyid[contact.geom2] == body1_id
-            ):
-                return True
+            body_geom1 = self.model.geom_bodyid[geom1]
+            body_geom2 = self.model.geom_bodyid[geom2]
 
-        return False
+            if (body_geom1 == body1_id and body_geom2 in valid_body2_ids) or \
+            (body_geom2 == body1_id and body_geom1 in valid_body2_ids):
+                return 1.0
+
+        return 0.0
+
 
     def get_feet_contacts(self, data):
-        left_contact = self.check_contact(data, "foot_assembly", "floor")
-        right_contact = self.check_contact(data, "foot_assembly_2", "floor")
-        return left_contact, right_contact
+        # Works for both flat scenes and ramp/platform scenes
+        terrain_bodies = ["floor", "ramp", "lower_floor"]
+
+        left_contact = self.check_contact_with_any(data, "foot_assembly", terrain_bodies)
+        right_contact = self.check_contact_with_any(data, "foot_assembly_2", terrain_bodies)
+
+        return np.array([left_contact, right_contact], dtype=np.float32)

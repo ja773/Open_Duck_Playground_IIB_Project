@@ -68,7 +68,7 @@ def reward_imitation(
     )  # normalize the quat
     base_orientation = base_qpos[3:7]
     base_orientation = base_orientation / np.linalg.norm(
-        base_orientation
+        base_orientationplayground/open_duck_mini_v2/xmls
     )  # normalize the quat
 
     ref_base_lin_vel = reference_frame[linear_vel_slice_start:linear_vel_slice_end]
