@@ -17,14 +17,16 @@
     </asset>
 
     <worldbody>
-        <body name="floor" pos="0 0 -0.05">
-            <geom name="floor_geom"
-                  type="box"
-                  size="2.0 5.8 0.05"
-                  material="groundplane"
-                  contype="1" conaffinity="1"
-                  condim="3"
-                  friction="0.8 0.1 0.1"/>
+        <body name="floor">
+            <geom name="floor"
+                size="0 0 0.01"
+                type="plane"
+                material="groundplane"
+                contype="1"
+                conaffinity="0"
+                priority="1"
+                friction="0.6"
+                condim="3"/>
         </body>
 
         <body name="ramp" pos="3.5 0 0.0186">
@@ -36,7 +38,7 @@
                   material="groundplane"
                   contype="1" conaffinity="1"
                   condim="3"
-                  friction="0.8 0.1 0.1"/>
+                  friction="0.6 0.1 0.1"/>
         </body>
 
         <body name="lower_floor" pos="5.8 0 0.1060">

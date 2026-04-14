@@ -20,7 +20,7 @@ class MjInferFixed(MJInferBase):
         self.standing = standing
 
         # ===== FIXED COMMAND (EDIT THIS FOR EXPERIMENTS) =====
-        self.commands = [0.12, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        self.commands = [0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
         # [vx, vy, yaw, neck, head_pitch, head_yaw, head_roll]
 
         # ===== PARAMS =====
