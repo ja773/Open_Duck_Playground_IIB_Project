@@ -17,62 +17,55 @@
     </asset>
 
     <worldbody>
-        <geom name="floor" type="plane" size="0 0 0.01"
-              material="groundplane"
-              contype="1" conaffinity="1"
-              condim="3"
-              friction="0.8 0.1 0.1"/>
-
-        <!-- 7 degree uphill ramp -->
-        <body name="ramp_up_7deg" pos="2.0 0 0.1830">
-            <geom name="ramp_up_geom"
+        <body name="floor" pos="0 0 -0.0498">
+            <geom name="floor"
                   type="box"
-                  size="1.5 0.5 0.03"
-                  pos="0 0 0.03"
-                  euler="0 -0.1222 0"
+                  size="6.0000 5.5000 0.0500"
+                  euler="0 -0.087266 0"
                   material="groundplane"
                   contype="1"
                   conaffinity="1"
-                  condim="3"
-                  friction="0.8 0.1 0.1"/>
+                  priority="1"
+                  friction="0.6"
+                  condim="3"/>
         </body>
     </worldbody>
 
     <keyframe>
         <key name="home"
              qpos="
-    0 0 0.15
+    -2.5000 0.0000 -0.0679
     1 0 0 0
-      0.002
-        0.053
-        -0.63
-        1.368
-        -0.784
-        0
-        0
-        0
-        0
-        -0.003
-        -0.065
-        0.635
-        1.379
-        -0.796
+    0.002
+    0.053
+    -0.63
+    1.368
+    -0.784
+    0
+    0
+    0
+    0
+    -0.003
+    -0.065
+    0.635
+    1.379
+    -0.796
 "
              ctrl="
-          0.002
-        0.053
-        -0.63
-        1.368
-        -0.784
-        0
-        0
-        0
-        0
-        -0.003
-        -0.065
-        0.635
-        1.379
-        -0.796
-          "/>
+    0.002
+    0.053
+    -0.63
+    1.368
+    -0.784
+    0
+    0
+    0
+    0
+    -0.003
+    -0.065
+    0.635
+    1.379
+    -0.796
+"/>
     </keyframe>
 </mujoco>

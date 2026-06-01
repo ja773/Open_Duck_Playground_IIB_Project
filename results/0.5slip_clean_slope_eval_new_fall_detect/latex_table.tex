@@ -1,0 +1,23 @@
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrrrrrl}
+\hline
+Terrain & Succ. & Fall & Esc. & Dist. & Drift & Yaw & Failure mode \\
+\hline
+down_1deg & 1.00 & 0.00 & 0.00 & 1.30 & 0.73 & 0.88 & Success \\
+down_3deg & 0.00 & 0.00 & 1.00 & 1.85 & 0.95 & 0.70 & Drift / escape \\
+down_5deg & 0.00 & 0.00 & 1.00 & 2.27 & 0.87 & 0.56 & Drift / escape \\
+down_7deg & 0.00 & 1.00 & 0.00 & 0.37 & 0.03 & 0.33 & Fall \\
+down_10deg & 0.00 & 1.00 & 0.00 & 0.30 & 0.01 & 0.35 & Fall \\
+flat & 0.00 & 0.00 & 0.00 & 0.43 & 0.61 & 1.35 & Heading loss \\
+up_1deg & 1.00 & 0.00 & 0.00 & 0.53 & 0.19 & 0.09 & Success \\
+up_3deg & 0.00 & 0.00 & 0.00 & -0.11 & 0.53 & 1.98 & Heading loss \\
+up_5deg & 0.00 & 1.00 & 0.00 & -0.22 & 0.03 & 0.32 & Fall \\
+up_7deg & 0.00 & 1.00 & 0.00 & -0.19 & 0.02 & 0.14 & Fall \\
+up_10deg & 0.00 & 1.00 & 0.00 & -0.14 & 0.01 & 0.05 & Fall \\
+\hline
+\end{tabular}
+\caption{Baseline policy performance across slope conditions. Succ. denotes success rate, Fall denotes fall rate, and Esc. denotes the fraction of trials leaving the lateral corridor. Dist., Drift, and Yaw report mean forward distance, maximum lateral drift, and maximum yaw error respectively.}
+\label{tab:baseline_slope_results}
+\end{table}

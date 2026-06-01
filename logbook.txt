@@ -1,0 +1,296 @@
+PROJECT LOGBOOK
+
+Project Title:
+Sim-to-Real Reinforcement Learning & Vision for Robust Bipedal Walking on the Open Duck Mini
+
+Student:
+Jiyaad Ali
+
+College:
+Downing College
+
+Supervisor:
+Dr Elena Punskaya
+
+======================================================================
+MICHAELMAS TERM
+===============
+
+October 2025
+
+Initial project familiarisation and planning.
+
+Tasks completed:
+
+* Reviewed project objectives and expected deliverables.
+* Investigated Open Duck Mini platform and software stack.
+* Reviewed reinforcement learning locomotion literature.
+* Studied PPO training methodology and sim-to-real transfer concepts.
+* Investigated diffusion-policy based locomotion approaches.
+
+Initial ideas:
+
+* Test locomotion robustness across varying terrain conditions.
+* Develop benchmark environments and evaluation metrics.
+* Explore reward-function modifications to improve robustness.
+* Investigate future integration of vision-based terrain awareness.
+
+Key papers reviewed:
+
+* PPO
+* TRPO
+* DeepMimic
+* AMP
+* RMA
+* Domain Randomisation
+* Diffusion Policy
+* BiRoDiff
+
+Challenges:
+
+* Large codebase and unfamiliar software stack.
+* Understanding interaction between training framework, simulator and deployment code.
+
+Supervisor discussions:
+
+* Need to define a clear experimental contribution.
+* Focus on robustness rather than only locomotion performance.
+* Develop measurable evaluation metrics.
+
+---
+
+November 2025
+
+Simulation setup and baseline experimentation.
+
+Tasks completed:
+
+* Installed and configured MuJoCo environment.
+* Loaded Open Duck Mini model successfully.
+* Ran baseline locomotion policies.
+* Investigated training and inference pipelines.
+* Tested robot behaviour in modified simulation environments.
+
+Observations:
+
+* Robot performed reliably on flat terrain.
+* Terrain changes produced noticeable behavioural degradation.
+* Existing evaluation methods focused mainly on success/failure outcomes.
+
+Actions:
+
+* Began designing robustness benchmark framework.
+* Started defining performance metrics beyond episode survival.
+
+---
+
+December 2025
+
+Literature review and project definition.
+
+Tasks completed:
+
+* Expanded literature review.
+* Investigated locomotion robustness research.
+* Studied reward-function design for legged locomotion.
+* Researched terrain adaptation methods.
+
+Key insight:
+Policies can remain upright while still failing to follow desired trajectories. This suggested the need for additional robustness metrics.
+
+Planned metrics:
+
+* Forward progress
+* Episode duration
+* Heading error
+* Lateral drift
+* Corridor escape
+* Fall detection
+
+======================================================================
+LENT TERM
+=========
+
+January 2026
+
+Development of terrain evaluation framework.
+
+Tasks completed:
+
+* Created custom slope environments in MuJoCo.
+* Implemented automated evaluation scripts.
+* Added logging and data collection functionality.
+* Developed batch experimentation workflow.
+
+Terrain configurations:
+
+* Flat terrain
+* Uphill slopes
+* Downhill slopes
+
+Challenges:
+
+* Terrain transitions produced unrealistic behaviour.
+* Multi-segment ramps caused simulation artefacts.
+
+Resolution:
+
+* Replaced terrain designs with continuous inclined surfaces.
+
+---
+
+February 2026
+
+Baseline robustness experiments.
+
+Tasks completed:
+
+* Evaluated baseline policy across multiple slope angles.
+* Conducted repeated trials for each terrain condition.
+* Recorded performance metrics automatically.
+
+Experiments:
+
+* Flat terrain
+* ±1 degree slopes
+* ±3 degree slopes
+* ±5 degree slopes
+* Later expanded to ±7 degree and ±10 degree slopes
+
+Major observation:
+Robot frequently drifted sideways or rotated away from the commanded direction before falling.
+
+Key finding:
+Robustness degradation occurs gradually through directional instability rather than immediate collapse.
+
+Actions:
+
+* Added heading-failure detection.
+* Added corridor-escape detection.
+* Generated trajectory visualisations.
+
+---
+
+March 2026
+
+Failure mode analysis.
+
+Tasks completed:
+
+* Analysed trajectory data.
+* Investigated heading drift behaviour.
+* Examined relationship between slope angle and failure mode.
+
+Findings:
+
+* Shallow slopes often caused corridor escape.
+* Moderate slopes produced large heading errors.
+* Steeper slopes caused catastrophic falls.
+* Different failure modes emerged at different inclinations.
+
+Contribution identified:
+Development of a robustness evaluation framework capable of distinguishing directional failure from catastrophic instability.
+
+======================================================================
+EASTER TERM
+===========
+
+April 2026
+
+Reward-function investigation.
+
+Tasks completed:
+
+* Analysed original Open Duck reward formulation.
+* Reviewed Disney BD-X locomotion reward structure.
+* Investigated locomotion stabilisation techniques.
+
+Hypothesis:
+Additional slip regularisation may improve terrain robustness by encouraging more stable foot-ground interactions.
+
+Implementation:
+
+* Added explicit slip penalty term to reward function.
+* Modified training configuration.
+* Prepared retraining experiments.
+
+---
+
+May 2026
+
+Slip-regularised policy training and evaluation.
+
+Tasks completed:
+
+* Retrained policy using modified reward formulation.
+* Evaluated policy using identical benchmark framework.
+* Compared against baseline controller.
+
+Metrics collected:
+
+* Success rate
+* Fall rate
+* Episode duration
+* Forward progress
+* Heading error
+* Lateral drift
+* Corridor escape
+
+Results:
+
+* Improved behaviour on some shallow slopes.
+* Improved stability on selected uphill and downhill conditions.
+* Did not eliminate failures on steeper terrain.
+* Introduced new behavioural trade-offs.
+
+Key insight:
+Reward shaping changed the locomotion strategy rather than uniformly improving robustness.
+
+---
+
+June 2026
+
+Final analysis and report preparation.
+
+Tasks completed:
+
+* Generated final trajectory plots.
+* Produced summary figures and tables.
+* Completed robustness analysis.
+* Expanded future work discussion.
+* Finalised dissertation.
+
+Future work identified:
+
+* Adaptive control architectures
+* Diffusion-based locomotion policies
+* Domain randomisation improvements
+* Vision-based terrain awareness
+* Real-world hardware deployment
+
+======================================================================
+PROJECT OUTCOMES
+================
+
+Major contributions:
+
+1. Development of an automated terrain robustness benchmark for Open Duck Mini.
+
+2. Identification of directional instability failure modes that occur before catastrophic falls.
+
+3. Quantitative analysis of locomotion robustness across varying terrain inclinations.
+
+4. Investigation of reward shaping through slip regularisation.
+
+5. Evaluation framework suitable for future adaptive and vision-guided locomotion research.
+
+Skills developed:
+
+* Reinforcement learning for robotics
+* PPO training pipelines
+* MuJoCo simulation
+* Sim-to-real transfer concepts
+* Experimental design
+* Data analysis and visualisation
+* Research literature review
+* Scientific report writing

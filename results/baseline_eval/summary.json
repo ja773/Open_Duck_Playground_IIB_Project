@@ -1,0 +1,101 @@
+[
+  {
+    "experiment": "down_3deg",
+    "angle_deg": 3,
+    "direction": "down",
+    "trials": 5,
+    "success_rate": 0.0,
+    "mean_time_s": 20.001999999999793,
+    "mean_distance_m": 1.089708666622386,
+    "mean_lateral_drift_m": 1.195516167487251,
+    "mean_yaw_error_rad": 1.4734435407976525
+  },
+  {
+    "experiment": "down_5deg",
+    "angle_deg": 5,
+    "direction": "down",
+    "trials": 5,
+    "success_rate": 0.0,
+    "mean_time_s": 20.001999999999793,
+    "mean_distance_m": 1.0866034375558298,
+    "mean_lateral_drift_m": 1.197857422150946,
+    "mean_yaw_error_rad": 1.4902063884209884
+  },
+  {
+    "experiment": "down_7deg",
+    "angle_deg": 7,
+    "direction": "down",
+    "trials": 5,
+    "success_rate": 0.0,
+    "mean_time_s": 20.001999999999793,
+    "mean_distance_m": 1.0955974446404573,
+    "mean_lateral_drift_m": 1.1991943253781776,
+    "mean_yaw_error_rad": 1.4552542277270613
+  },
+  {
+    "experiment": "down_10deg",
+    "angle_deg": 10,
+    "direction": "down",
+    "trials": 5,
+    "success_rate": 0.0,
+    "mean_time_s": 20.001999999999793,
+    "mean_distance_m": 1.0875037331753874,
+    "mean_lateral_drift_m": 1.2014317016641882,
+    "mean_yaw_error_rad": 1.4974671819912384
+  },
+  {
+    "experiment": "flat",
+    "angle_deg": 0,
+    "direction": "flat",
+    "trials": 5,
+    "success_rate": 1.0,
+    "mean_time_s": 20.001999999999793,
+    "mean_distance_m": 1.1728748407365304,
+    "mean_lateral_drift_m": 0.33404147006247525,
+    "mean_yaw_error_rad": 0.25980977579042497
+  },
+  {
+    "experiment": "up_3deg",
+    "angle_deg": 3,
+    "direction": "up",
+    "trials": 5,
+    "success_rate": 0.0,
+    "mean_time_s": 20.001999999999793,
+    "mean_distance_m": 1.1728748407365304,
+    "mean_lateral_drift_m": 0.33404147006247525,
+    "mean_yaw_error_rad": 0.25980977579042497
+  },
+  {
+    "experiment": "up_5deg",
+    "angle_deg": 5,
+    "direction": "up",
+    "trials": 5,
+    "success_rate": 0.0,
+    "mean_time_s": 20.001999999999793,
+    "mean_distance_m": 1.1728748407365304,
+    "mean_lateral_drift_m": 0.33404147006247525,
+    "mean_yaw_error_rad": 0.25980977579042497
+  },
+  {
+    "experiment": "up_7deg",
+    "angle_deg": 7,
+    "direction": "up",
+    "trials": 5,
+    "success_rate": 0.0,
+    "mean_time_s": 20.001999999999793,
+    "mean_distance_m": 1.1728748407365304,
+    "mean_lateral_drift_m": 0.33404147006247525,
+    "mean_yaw_error_rad": 0.25980977579042497
+  },
+  {
+    "experiment": "up_10deg",
+    "angle_deg": 10,
+    "direction": "up",
+    "trials": 5,
+    "success_rate": 0.0,
+    "mean_time_s": 20.001999999999793,
+    "mean_distance_m": 1.1728748407365304,
+    "mean_lateral_drift_m": 0.33404147006247525,
+    "mean_yaw_error_rad": 0.25980977579042497
+  }
+]
